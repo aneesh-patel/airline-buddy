@@ -34,7 +34,7 @@ const Table = ({ columns, rows, format, perPage }) => {
 
   return (
     <div id='airline-table'>
-      <h4>Page {page} - Showing {currentStart + 1} - {(currentEnd)} routes of {rows.length}</h4>
+      <h4>Page {page} - Showing {currentStart + 1} - {rows.length < perPage ? rows.length : currentEnd} routes of {rows.length}</h4>
       <table>
         <thead>
           <tr>
