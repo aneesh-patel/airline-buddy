@@ -4,6 +4,7 @@ import data from './data'
 import { getAirlineById, getAirportByCode } from './data'
 import Table from './components/Table'
 import Filter from './components/Filter'
+import Map from './components/Map'
 import { useState, useEffect } from 'react'
 import SelectByAirline from './components/SelectByAirline';
 import SelectByAirport from './components/SelectByAirport'
@@ -52,20 +53,24 @@ const App = () => {
 
   return (
     <div className="app">
-    <header className="header">
-      <h1 className="title">Airline Routes</h1>
-    </header>
-    <section>
-      <p>
-        Welcome to the app!
-      </p>
-      <Filter setRows={setRows} routes={routes} setAirport={setAirport} setAirline={setAirline}>
-        <SelectByAirline airlines={airlines} rows={rows} setAirline={setAirline} airline={airline}/>
-        <SelectByAirport airports={airports} rows={rows} setAirport={setAirport} airport={airport} />
-      </Filter>
-      <Table className='routes-table' columns={columns} rows={rows} format={formatValue} perPage={25} />
-    </section>
-  </div>
+      <header className="header">
+        <h1 className="title">Airline Routes</h1>
+      </header>
+      <div id='map'>
+        <Map rows={rows} airports={airports} />
+      </div>
+      
+      <section>
+        <p>
+          Welcome to the app!
+        </p>
+        <Filter setRows={setRows} routes={routes} setAirport={setAirport} setAirline={setAirline}>
+          <SelectByAirline airlines={airlines} rows={rows} setAirline={setAirline} airline={airline}/>
+          <SelectByAirport airports={airports} rows={rows} setAirport={setAirport} airport={airport} />
+        </Filter>
+        <Table className='routes-table' columns={columns} rows={rows} format={formatValue} perPage={25} />
+      </section>
+    </div>
   )
 }
 

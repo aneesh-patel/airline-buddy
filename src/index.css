@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  justify-content: center;
 }
 table {
   justify-content: center;
@@ -10,6 +11,14 @@ table {
 
 #airline-table {
   justify-self: center;
+  margin: auto;
+  justify-content: center;
+}
+
+
+
+#map {
+  display: flex;
   margin: auto;
   justify-content: center;
 }
